@@ -88,7 +88,7 @@ int DFT(int idft, double *xr, double *xi, double *Xr_o, double *Xi_o, int N) {
 
   double PI2N = PI2 / N;
 
-  #pragma omp parallel for
+  #pragma omp parallel for schedule(dynamic)
   for (int k = 0; k < N; k++) {
     double Xr_ok = 0.0;
     double Xi_ok = 0.0;

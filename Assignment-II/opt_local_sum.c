@@ -7,7 +7,13 @@
 #define ARRAY_SIZE	10000000
 #define N_TIMES 15
 
+typedef struct padded_vals{
+      double val;
+      char pad[128];
+    } padded_vals;
+
 double A[ARRAY_SIZE];
+
 
 void generate_random(double *input, size_t size){
   for (size_t i = 0; i < size; i++) {
@@ -16,11 +22,6 @@ void generate_random(double *input, size_t size){
 }
 
 double opt_local_sum(double *x, size_t size) {
-
-    typedef struct padded_vals{
-      double val;
-      char pad[128];
-    } padded_vals;
     
     int n_threads = omp_get_max_threads();
     padded_vals local_sums[n_threads];
