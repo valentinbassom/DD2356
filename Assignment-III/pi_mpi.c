@@ -11,14 +11,15 @@ int main(int argc, char* argv[])
     int sum = 0;
     int rank, size, provided;
     double x, y, z, pi;
-
+    
     MPI_Init_thread(&argc, &argv, MPI_THREAD_SINGLE, &provided);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    double t = MPI_Wtime();
     
     srand(SEED*rank); // Important: Multiply SEED by "rank" when you introduce MPI!
     
-    double t = MPI_Wtime();
     // Calculate PI following a Monte Carlo method
     for (int iter = rank; iter < NUM_ITER; iter+=size)
     {

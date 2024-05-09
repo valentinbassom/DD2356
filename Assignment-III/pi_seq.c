@@ -10,9 +10,10 @@ int main(int argc, char* argv[])
     int count = 0;
     double x, y, z, pi;
     
+    clock_t t = clock();
+    
     srand(SEED); // Important: Multiply SEED by "rank" when you introduce MPI!
     
-    clock_t t = clock();
     // Calculate PI following a Monte Carlo method
     for (int iter = 0; iter < NUM_ITER; iter++)
     {

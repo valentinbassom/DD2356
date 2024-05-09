@@ -70,13 +70,13 @@ int main(int argc, char *argv[]){
     if (rank==0){ // print only rank 0 for convenience
         printf("My rank %d of %d\n", rank, size );
         printf("Here are my values for f including ghost cells:\n");
-        printf("[")
+        printf("[");
         for (i=0; i<nxn_loc-1; i++)
 	        printf("%f, ", f[i]);
         printf("%f", f[nxn_loc-1]);
         printf("]\n");
         printf("Here are my values for dfdx:\n");
-        printf("[")
+        printf("[");
         for (i=1; i<nxn_loc-2; i++)
 	        printf("%f, ", dfdx[i]);
         printf("%f", dfdx[nxn_loc-2]);
